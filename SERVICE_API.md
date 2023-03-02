@@ -15,7 +15,7 @@ Each asset has:
 There are three more interesting properties on asset which drives asset visibility:
 * `isSystem` - the asset is build-in, e.g. visible for everybody, such assets can be created and modified by system admin only.
 * `isAccShared` - the asset is visible to all account users.
-* `isEnterprise` - This flag means that this asset can only be seen by users who have a higher tariff than the free tariff. Only account admin user can create|modify such asset
+* `isEnterprise` - This flag means that this asset can only be seen by users who have a higher tariff than the free tariff. Only system admin user can create|modify such asset
 
 ## Correlation (CR) and Detection Rules (DR) Assets
 
