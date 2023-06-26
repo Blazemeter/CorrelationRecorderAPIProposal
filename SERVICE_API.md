@@ -16,6 +16,7 @@ There are three more interesting properties on asset which drives asset visibili
 * `isSystem` - the asset is build-in, e.g. visible for everybody, such assets can be created and modified by system admin only.
 * `isAccShared` - the asset is visible to all account users.
 * `isEnterprise` - This flag means that this asset can only be seen by users who have a higher tariff than the free tariff. Only system admin user can create|modify such asset
+* `dataAccessible` - Whether the user can see the correlation and detection rule stored in the `data` attribute. Computed attribute based on current user billing plan.
 
 ## Correlation (CR) and Detection Rules (DR) Assets
 
@@ -58,7 +59,7 @@ So for example the CR asset can look like:
       "application": "Wordpress",
       "version": "1.1.2"
     },
-  	"isSystem": false,
+    "isSystem": false,
     "isEnterprise": false,
     "isAccShared": false
 }
@@ -73,7 +74,7 @@ and corresponding detection rule:
       "application": "Siebel",
       "version": "8.1.2"
     },
-  	"isSystem": false,
+    "isSystem": false,
     "isEnterprise": false,
     "isAccShared": false
 }
@@ -117,6 +118,7 @@ GET ${arUrl}/api/v1/workspaces/${wsId}/assets?withSystem=true&withAccShared=true
             "isSystem": false,
             "isEnterprise": false,
             "isAccShared": false,
+            "dataAccessible": true,
             "createdByEmail": "okepka@perforce.com",
             "updatedByEmail": "okepka@perforce.com"
         },
@@ -177,9 +179,9 @@ body:
       "application": "Wordpress",
       "version": "1.1.2"
     },
-  	"isSystem": false,
+    "isSystem": false,
     "isEnterprise": false,
-  "isAccShared": false
+    "isAccShared": false
 }
 
 Response:
@@ -202,6 +204,7 @@ Response:
         "createdBy": 1620964,
         "updatedAt": "2023-02-28T14:52:27.548Z",
         "updatedBy": 1620964,
+        "isSystem": false,
         "isEnterprise": false,
         "isAccShared": false
     }
@@ -219,7 +222,7 @@ body:
 }
 ```
 
-Similarly for DR.
+Similarly, for DR.
 
 
 
